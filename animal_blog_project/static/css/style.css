@@ -18,6 +18,22 @@ footer {
 }
 /*******************************/
 
+/*********** Hero Image Stuff *******/
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text {
+  z-index: 2;
+}
+
+.hero img {
+  max-height: 60vh;
+  object-fit: cover;
+}
+
+/******************************/
 
 /********* Card stuff **********/
 .card {
