@@ -1,9 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}All Animals{% endblock %}
+{% block title %}Animal Blog{% endblock %}
+
 
 {% block content %}
-<h1 class="mb-4 text-center">🐾 All Animals</h1>
+
+{% if featured_animals %}
+<h2 class="mb-3">Featured Animals</h2>
+<div class="row mb-5">
+  {% for animal in featured_animals %}
+  <div class="col-md-4 mb-4">
+    <div class="card shadow-sm border-success">
+      {% if animal.image %}
+        <img src="{{ animal.image.url }}" class="card-img-top" alt="{{ animal.name }}">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ animal.name }}</h5>
+        <p class="card-text text-muted">{{ animal.species }}</p>
+        <a href="{% url 'blog:animal_detail' animal.id %}" class="btn btn-success btn-sm">View Details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+
+<h1 class="mb-4 text-center">All Animals</h1>
 
 <div class="row">
   {% for animal in animals %}
@@ -13,7 +37,7 @@
           <img src="{{ animal.image.url }}" class="card-img-top" alt="{{ animal.name }}">
         {% else %}
           <!-- Import the static tag -->
-          {% load static %}
+
           <img src="{% static 'images/placeholder.png' %}" class="card-img-top" alt="No image">
         {% endif %}
         <div class="card-body">

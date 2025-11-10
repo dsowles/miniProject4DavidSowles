@@ -9,9 +9,14 @@ from .forms import AnimalForm
 
 # Create your views here.
 def animal_list(request):
-    # Get all animal records.
-    animals = Animal.objects.all()
-    return render(request, "blog/animal_list.html", {"animals": animals})
+    # Get featured animal records.
+    featured_animals = Animal.objects.filter(featured=True)
+    # Get animal records which are not featured.
+    animals = Animal.objects.filter(featured=False)
+    return render(request, "blog/animal_list.html", {
+        "featured_animals": featured_animals,
+        "animals": animals,
+    })
 
 def animal_detail(request, pk):
     # Get the particular animal record, or redirect to 404 page.

@@ -20,14 +20,32 @@ admin.site.index_title = "Welcome to the Animal Blog Admin"
 @admin.register(Animal)
 class AnimalAdmin(admin.ModelAdmin):
     # Column names for admin table.
-    list_display = ('name', 'species', 'date_added', 'image_tag')
+    list_display = ('name', 'species', 'date_added', 'thumbnail','featured')
     # The following will be used by Django to setup a search bar.
     search_fields = ('name', 'species')
     # Adds a sidebar fileter.
     list_filter = ('species',)
 
-    def image_tag(self, obj):
+    list_editable = ('featured',)
+    ordering = ('-featured', '-date_added')
+
+    fieldsets = (
+        ('Animal Info', {
+            'fields': ('name', 'species', 'description')
+        }),
+        ('Media', {
+            'fields': ('image',)
+        }),
+        ('Metadata', {
+            'fields': ('featured', 'date_added'),
+            'classes': ('collapse',),
+        }),
+    )
+
+    readonly_fields = ('date_added',)
+
+    def thumbnail(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="50" height="50" style="object-fit:cover;border-radius:5px;">', obj.image.url)
         return "—"
-    image_tag.short_description = "Image"
+    thumbnail.short_description = "Image"

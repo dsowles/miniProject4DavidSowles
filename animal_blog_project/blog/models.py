@@ -19,10 +19,12 @@ class Animal(models.Model):
     image = models.ImageField(upload_to="animal_images/", blank=True, null=True)
     # Date which the entry was created.
     date_added = models.DateTimeField(auto_now_add=True)
+    # Used to mark a particular animal record as being featured.
+    featured = models.BooleanField(default=False, help_text="Mark this animal as featured")
 
     # Meta class for ordering entries. Newest first.
     class Meta:
         ordering = ['-date_added']
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.species})"
