@@ -9,8 +9,8 @@
   {% for animal in animals %}
     <div class="col-md-4 mb-4">
       <div class="card shadow-sm h-100">
-        {% if animal.image_url %}
-          <img src="{{ animal.image_url }}" class="card-img-top" alt="{{ animal.name }}">
+        {% if animal.image %}
+          <img src="{{ animal.image.url }}" class="card-img-top" alt="{{ animal.name }}">
         {% else %}
           <!-- Import the static tag -->
           {% load static %}

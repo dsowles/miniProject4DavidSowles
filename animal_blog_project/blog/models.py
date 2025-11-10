@@ -16,7 +16,7 @@ class Animal(models.Model):
     # A description of the animal, which can be a much longer text.
     description = models.TextField()
     # Optional image for the animal.
-    image_url = models.URLField(blank=True)
+    image = models.ImageField(upload_to="animal_images/", blank=True, null=True)
     # Date which the entry was created.
     date_added = models.DateTimeField(auto_now_add=True)
 

@@ -4,9 +4,9 @@
 # Date of Creation 11/07/2025
 
 from django.contrib import admin
-
 # Blog app model imports
 from .models import Animal
+from django.utils.html import format_html
 
 # Update admin site's blog settings.
 admin.site.site_header = "🐾 Animal Blog Admin"
@@ -20,8 +20,14 @@ admin.site.index_title = "Welcome to the Animal Blog Admin"
 @admin.register(Animal)
 class AnimalAdmin(admin.ModelAdmin):
     # Column names for admin table.
-    list_display = ('name', 'species', 'date_added')
+    list_display = ('name', 'species', 'date_added', 'image_tag')
     # The following will be used by Django to setup a search bar.
     search_fields = ('name', 'species')
     # Adds a sidebar fileter.
     list_filter = ('species',)
+
+    def image_tag(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="50" height="50" style="object-fit:cover;border-radius:5px;">', obj.image.url)
+        return "—"
+    image_tag.short_description = "Image"

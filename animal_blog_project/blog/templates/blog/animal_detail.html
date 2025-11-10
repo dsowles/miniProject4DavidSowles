@@ -4,8 +4,11 @@
 
 {% block content %}
 <div class="card mb-4 shadow-sm">
-  {% if animal.image_url %}
-    <img src="{{ animal.image_url }}" class="card-img-top" alt="{{ animal.name }}">
+  {% if animal.image %}
+    <img src="{{ animal.image.url }}" class="card-img-top" alt="{{ animal.name }}">
+    {% else %}
+    {% load static %}
+    <img src="{% static 'images/placeholder.png' %}" class="card-img-top" alt="No image">
   {% endif %}
   <div class="card-body">
     <h2 class="card-title">{{ animal.name }}</h2>
