@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
+{% load static %}
+
 {% block content %}
-<div class="text-center mt-5">
-  <h1>Welcome to the Animal Blog!</h1>
-  <p class="lead">Explore amazing animals, their stories, and pictures.</p>
-  <a class="btn btn-primary btn-lg" href="{% url 'blog:animal_list' %}">Go to Blog</a>
+<!-- Hero Section -->
+<section class="hero position-relative text-center text-white mb-5">
+  <img src="{% static 'images/hero.jpg' %}" class="img-fluid w-100" alt="Animals background" style="height: 60vh; object-fit: cover; filter: brightness(60%);">
+  <div class="hero-text position-absolute top-50 start-50 translate-middle">
+    <h1 class="display-4 fw-bold">Welcome to Animal Blog</h1>
+    <p class="lead">Discover amazing facts, stories, and photos of your favorite animals.</p>
+    <a href="{% url 'blog:animal_list' %}" class="btn btn-primary btn-lg mt-3">Explore the Blog</a>
+  </div>
+</section>
+
+<!-- Optional extra content -->
+<div class="container">
+  <h2 class="text-center mb-4">Featured Posts</h2>
+  <p class="text-center">Check out the latest stories from our users and animal lovers!</p>
 </div>
 {% endblock %}
