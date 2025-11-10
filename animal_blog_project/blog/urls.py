@@ -11,4 +11,5 @@ app_name = "blog"
 urlpatterns = [
     path("", views.animal_list, name="animal_list"),
     path("<int:pk>/", views.animal_detail, name="animal_detail"),
+    path("add/", views.add_animal, name="add_animal"),
 ]

@@ -2,3 +2,11 @@
 # Name: David A. Sowles
 # Project: Mini Project 4
 # Date of Creation 11/07/2025
+
+from django import forms
+from .models import Animal
+
+class AnimalForm(forms.ModelForm):
+    class Meta:
+        model = Animal
+        fields = ['name', 'species', 'description', 'image']
