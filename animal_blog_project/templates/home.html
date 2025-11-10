@@ -3,13 +3,22 @@
 {% load static %}
 
 {% block content %}
+
 <!-- Hero Section -->
 <section class="hero position-relative text-center text-white mb-5">
-  <img src="{% static 'images/hero.jpg' %}" class="img-fluid w-100" alt="Animals background" style="height: 60vh; object-fit: cover; filter: brightness(60%);">
+  <!-- Hero Image -->
+  <img src="{% static 'images/hero.jpg' %}" 
+       class="img-fluid w-100 hero-img" 
+       alt="Animals background">
+
+  <!-- Overlay -->
+  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+
+  <!-- Hero Text -->
   <div class="hero-text position-absolute top-50 start-50 translate-middle">
-    <h1 class="display-4 fw-bold">Welcome to Animal Blog</h1>
-    <p class="lead">Discover amazing facts, stories, and photos of your favorite animals.</p>
-    <a href="{% url 'blog:animal_list' %}" class="btn btn-primary btn-lg mt-3">Explore the Blog</a>
+    <h1 class="display-4 fw-bold text-shadow">Welcome to Animal Blog</h1>
+    <p class="lead text-shadow">Discover amazing facts, stories, and photos of your favorite animals.</p>
+    <a href="{% url 'blog:animal_list' %}" class="btn btn-primary btn-lg mt-3 shadow">Explore the Blog</a>
   </div>
 </section>
 
