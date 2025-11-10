@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}All Animals{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center">🐾 All Animals</h1>
+
+<div class="row">
+  {% for animal in animals %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100">
+        {% if animal.image_url %}
+          <img src="{{ animal.image_url }}" class="card-img-top" alt="{{ animal.name }}">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ animal.name }}</h5>
+          <p class="card-text text-muted">{{ animal.species }}</p>
+          <p class="card-text">{{ animal.description|truncatewords:20 }}</p>
+          <a href="{% url 'blog:animal_detail' animal.pk %}" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No animals have been added yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

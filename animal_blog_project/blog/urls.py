@@ -3,3 +3,12 @@
 # Project: Mini Project 4
 # Date of Creation 11/07/2025
 
+from django.urls import path
+from . import views
+
+app_name = "blog"
+
+urlpatterns = [
+    path("", views.animal_list, name="animal_list"),
+    path("<int:pk>/", views.animal_detail, name="animal_detail"),
+]
