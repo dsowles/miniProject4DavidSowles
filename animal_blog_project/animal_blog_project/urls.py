@@ -1,3 +1,8 @@
+# INF601 - Advanced Programming in Python
+# Name: David A. Sowles
+# Project: Mini Project 4
+# Date of Creation 11/07/2025
+
 """
 URL configuration for animal_blog_project project.
 

@@ -1,3 +1,9 @@
+# INF601 - Advanced Programming in Python
+# Name: David A. Sowles
+# Project: Mini Project 4
+# Date of Creation 11/07/2025
+
+
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
