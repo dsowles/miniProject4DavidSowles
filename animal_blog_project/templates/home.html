@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="text-center mt-5">
+  <h1>Welcome to the Animal Blog!</h1>
+  <p class="lead">Explore amazing animals, their stories, and pictures.</p>
+  <a class="btn btn-primary btn-lg" href="{% url 'blog:animal_list' %}">Go to Blog</a>
+</div>
+{% endblock %}

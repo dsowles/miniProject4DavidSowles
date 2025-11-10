@@ -3,10 +3,11 @@
 # Project: Mini Project 4
 # Date of Creation 11/07/2025
 
-from django.contrib import admin
+from django.contrib import admin, messages
 # Blog app model imports
 from .models import Animal
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 
 # Update admin site's blog settings.
 admin.site.site_header = "🐾 Animal Blog Admin"
@@ -22,12 +23,13 @@ class AnimalAdmin(admin.ModelAdmin):
     # Column names for admin table.
     list_display = ('name', 'species', 'date_added', 'thumbnail','featured')
     # The following will be used by Django to setup a search bar.
-    search_fields = ('name', 'species')
+    search_fields = ('name', 'species', 'description')
     # Adds a sidebar fileter.
-    list_filter = ('species',)
-
+    list_filter = ('featured', 'species', 'date_added')
     list_editable = ('featured',)
     ordering = ('-featured', '-date_added')
+    readonly_fields = ('date_added', 'preview')
+    actions = ['mark_as_featured', 'unmark_as_featured']
 
     fieldsets = (
         ('Animal Info', {
@@ -54,3 +56,29 @@ class AnimalAdmin(admin.ModelAdmin):
         css = {
         'all': ('admin/css/custom_admin.css',)
     }
+        
+    # Custom actions
+    @admin.action(description="Mark selected animals as featured")
+    def mark_as_featured(self, request, queryset):
+        updated = queryset.update(featured=True)
+        self.message_user(
+            request,
+            f"{updated} animal(s) successfully marked as featured.",
+            messages.SUCCESS,
+        )
+
+    @admin.action(description="Unmark selected animals as featured")
+    def unmark_as_featured(self, request, queryset):
+        updated = queryset.update(featured=False)
+        self.message_user(
+            request,
+            f"{updated} animal(s) unmarked as featured.",
+            messages.WARNING,
+        )
+
+
+    def preview(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}" width="150" style="border-radius:10px;">')
+        return "No image"
+    preview.short_description = "Image Preview"
