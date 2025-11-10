@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2>About Animal Blog</h2>
+  <p>
+    The Animal Blog is a small Django web app created for educational purposes.
+    It lets users share pictures and stories about their favorite animals.
+  </p>
+
+  <!-- Bootstrap Modal Button -->
+  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#aboutModal">
+    Learn more
+  </button>
+
+  <!-- Bootstrap Modal -->
+  <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutModalLabel">About This Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Built with Django and Bootstrap. This project demonstrates CRUD operations, forms,
+          media uploads, and user authentication in a full web stack.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
