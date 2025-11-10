@@ -8,6 +8,11 @@ from django.contrib import admin
 # Blog app model imports
 from .models import Animal
 
+# Update admin site's blog settings.
+admin.site.site_header = "🐾 Animal Blog Admin"
+admin.site.site_title = "Animal Blog"
+admin.site.index_title = "Welcome to the Animal Blog Admin"
+
 # Register your models here.
 
 # This decorator tells Django to use the following class def to register the animal model
