@@ -60,7 +60,7 @@ ROOT_URLCONF = 'animal_blog_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"], # Tell django to use a templates folder in the base directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +71,8 @@ TEMPLATES = [
         },
     },
 ]
+
+STATICFILES_DIRS = [BASE_DIR / "static"] # Tell django where to serve static files from.
 
 WSGI_APPLICATION = 'animal_blog_project.wsgi.application'
 
