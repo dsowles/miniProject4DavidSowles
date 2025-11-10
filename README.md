@@ -30,6 +30,7 @@ Install dependencies using:
 ```bash
 pip install -r requirements.txt
 ```
+(Do this after the steps in the Intalling section)
 
 ### Installing
 - Create a project directory somewhere.
@@ -46,3 +47,26 @@ venv\Scripts\activate   # On Windows
 # or
 source venv/bin/activate  # On macOS/Linux
 ```
+- Install Project Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+- Apply migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+- Create a superuser account (optional)
+```bash
+python manage.py createsuperuser
+```
+
+- Run the server
+```bash
+python manage.py runserver
+```
+
+### Executing the Program
+- After installing, goto http://127.0.0.1:8000/
