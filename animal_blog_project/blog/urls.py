@@ -3,6 +3,3 @@
 # Project: Mini Project 4
 # Date of Creation 11/07/2025
 
-from django.test import TestCase
-
-# Create your tests here.
