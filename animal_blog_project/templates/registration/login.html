@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container py-5" style="max-width: 400px;">
+  <h2 class="mb-4 text-center">Login</h2>
+  {% if form.errors %}
+  <div class="alert alert-danger">Invalid username or password.</div>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      {{ form.username|add_class:"form-control" }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      {{ form.password|add_class:"form-control" }}
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+  <p class="text-center mt-3">
+    Don't have an account? <a href="{% url 'register' %}">Register here</a>.
+  </p>
+</div>
+{% endblock %}

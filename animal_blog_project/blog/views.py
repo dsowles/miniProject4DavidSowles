@@ -6,6 +6,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .models import Animal
 from .forms import AnimalForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def animal_list(request):
@@ -24,6 +25,7 @@ def animal_detail(request, pk):
     return render(request, "blog/animal_detail.html", {"animal": animal})
 
 # View to handle adding a new animal entry to the blog.
+@login_required
 def add_animal(request):
     if request.method == "POST":
         # Bind the submitted data.
