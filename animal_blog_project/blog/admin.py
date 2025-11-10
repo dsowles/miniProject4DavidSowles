@@ -49,3 +49,8 @@ class AnimalAdmin(admin.ModelAdmin):
             return format_html('<img src="{}" width="50" height="50" style="object-fit:cover;border-radius:5px;">', obj.image.url)
         return "—"
     thumbnail.short_description = "Image"
+
+    class Media:
+        css = {
+        'all': ('admin/css/custom_admin.css',)
+    }
