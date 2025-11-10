@@ -11,6 +11,10 @@
       <div class="card shadow-sm h-100">
         {% if animal.image_url %}
           <img src="{{ animal.image_url }}" class="card-img-top" alt="{{ animal.name }}">
+        {% else %}
+          <!-- Import the static tag -->
+          {% load static %}
+          <img src="{% static 'images/placeholder.png' %}" class="card-img-top" alt="No image">
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ animal.name }}</h5>

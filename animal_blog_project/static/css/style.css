@@ -1,0 +1,34 @@
+/* Base styles for the Animal Blog */
+body {
+    font-size: 16px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/********* Footer Stuff *******/
+footer {
+    font-size: 0.9rem;
+}
+
+/*****************************/
+
+/********* Navbar Stuff *********/
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+/*******************************/
+
+
+/********* Card stuff **********/
+.card {
+    border-radius: 1rem;
+}
+
+.card img {
+    object-fit:cover;
+    max-height: 25rem;
+}
+
+/******************************/
+
+
