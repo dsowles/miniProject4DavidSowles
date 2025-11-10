@@ -9,11 +9,20 @@ from django.db import models
 
 # Animal class for use in blog app.
 class Animal(models.Model):
+    # The animal's display name
     name = models.CharField(max_length=100)
+    # The species
     species = models.CharField(max_length=100)
+    # A description of the animal, which can be a much longer text.
     description = models.TextField()
+    # Optional image for the animal.
     image_url = models.URLField(blank=True)
+    # Date which the entry was created.
     date_added = models.DateTimeField(auto_now_add=True)
+
+    # Meta class for ordering entries. Newest first.
+    class Meta:
+        ordering = ['-date_added']
 
     def __str__(self):
         return self.name
