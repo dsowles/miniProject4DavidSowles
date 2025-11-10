@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog',
     "crispy_forms",
     "crispy_bootstrap5",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+# Changed timezone to my timezone.
 TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
@@ -134,3 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Stuff for Pillow module
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Login Stuff
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'

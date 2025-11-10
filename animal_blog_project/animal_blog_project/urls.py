@@ -34,6 +34,8 @@ urlpatterns = [
     path("about/", views.about, name="about"),  # about page
     path("contact/", views.contact, name="contact"),  # contact page
     path("blog/", include("blog.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls")),
 ]
 
 # Add support for serving media such as images from the media folder.
