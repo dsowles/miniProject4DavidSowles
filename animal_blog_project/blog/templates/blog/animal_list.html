@@ -26,6 +26,13 @@
 </div>
 {% endif %}
 
+{% if user.is_authenticated %}
+<div class="text-end mb-3">
+  <a href="{% url 'blog:add_animal' %}" class="btn btn-success">
+    <i class="bi bi-plus-circle"></i> Add New Animal
+  </a>
+</div>
+{% endif %}
 
 <h1 class="mb-4 text-center">All Animals</h1>
 

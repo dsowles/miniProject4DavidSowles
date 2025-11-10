@@ -30,9 +30,6 @@
           <a class="nav-link {% if request.path == '/blog' %}active{% endif %}" href="{% url 'blog:animal_list' %}">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.path == '/add/' %}active{% endif %}" href="{% url 'blog:add_animal' %}">Add Animal</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
         <li class="nav-item">
